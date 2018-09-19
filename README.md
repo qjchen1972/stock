@@ -4,4 +4,5 @@ An entertainment project, trying to get rules from historical data of stocks. it
    
    ![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
    
-*  Training and predicting only stocks falling into the trough. 
+*  Training and predicting images are only stocks falling into the trough. 
+*  confusion martix
