@@ -1,0 +1,329 @@
+Namespace(batch_size=64, cuda=True, d_inner_hid=2048, d_k=64, d_model=512, d_v=64, d_word_vec=512, data='data/multi30k.atok.low.pt', dropout=0.1, embs_share_weight=False, epoch=10, label_smoothing=True, log=None, max_token_seq_len=52, n_head=8, n_layers=6, n_warmup_steps=4000, no_cuda=False, proj_share_weight=True, save_mode='best', save_model='trained', src_vocab_size=2911, tgt_vocab_size=3149)
+Transformer(
+  (encoder): Encoder(
+    (src_word_emb): Embedding(2911, 512, padding_idx=0)
+    (position_enc): Embedding(53, 512)
+    (layer_stack): ModuleList(
+      (0): EncoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (1): EncoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (2): EncoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (3): EncoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (4): EncoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (5): EncoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+    )
+  )
+  (decoder): Decoder(
+    (tgt_word_emb): Embedding(3149, 512, padding_idx=0)
+    (position_enc): Embedding(53, 512)
+    (layer_stack): ModuleList(
+      (0): DecoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (enc_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (1): DecoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (enc_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (2): DecoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (enc_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (3): DecoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (enc_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (4): DecoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (enc_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+      (5): DecoderLayer(
+        (slf_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (enc_attn): MultiHeadAttention(
+          (w_qs): Linear(in_features=512, out_features=512, bias=True)
+          (w_ks): Linear(in_features=512, out_features=512, bias=True)
+          (w_vs): Linear(in_features=512, out_features=512, bias=True)
+          (attention): ScaledDotProductAttention(
+            (dropout): Dropout(p=0.1)
+            (softmax): Softmax()
+          )
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (fc): Linear(in_features=512, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1)
+        )
+        (pos_ffn): PositionwiseFeedForward(
+          (w_1): Conv1d(512, 2048, kernel_size=(1,), stride=(1,))
+          (w_2): Conv1d(2048, 512, kernel_size=(1,), stride=(1,))
+          (layer_norm): LayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.1)
+        )
+      )
+    )
+  )
+  (tgt_word_prj): Linear(in_features=512, out_features=3149, bias=False)
+)
+[ Epoch 0 ]

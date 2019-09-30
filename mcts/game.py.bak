@@ -1,0 +1,180 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+import numpy as np
+
+class Env(object):
+
+	def __init__(self,time_step = 10):
+		self.bet_states = {}
+		self.time_step = time_step
+		self.game_scene = {}
+		self.prob_scene = {}
+		self.last_move = -1
+
+	def init_env(self):
+		self.turn = -1
+		self.bet_states = {}
+		self.game_scene = {}
+		self.prob_scene = {}
+		self.last_move = -1
+		#self.
+
+
+	def update_scene(self,game_scene,prob_scene):
+		
+		self.turn += 1
+		self.availables = list(range(self.turn*self.time_step, (self.turn +1)*self.time_step))
+		game_scene += self.turn*self.time_step
+		self.game_scene[game_scene] = 1
+		self.prob_scene.update(dict(zip(self.availables,prob_scene)))
+
+	
+	def current_state(self):
+
+		square_state = np.zeros((4, self.time_step, self.time_step))
+		if self.bet_states:
+			moves, _ = np.array(list(zip(*self.bet_states.items())))
+			square_state[0][moves // self.time_step,
+                            moves % self.time_step] = 1.0
+
+		scene,_ = np.array(list(zip(*self.game_scene.items())))
+		
+		square_state[1][scene // self.time_step,
+                            scene % self.time_step] = 1.0
+		if self.last_move >= 0:
+			square_state[2][self.last_move// self.time_step,
+                		self.last_move % self.time_step] = 1.0
+		value,prob = np.array(list(zip(*self.prob_scene.items())))
+		value,prob = value[self.turn*self.time_step:(self.turn+1)*self.time_step],prob[self.turn*self.time_step:(self.turn+1)*self.time_step]
+		
+		square_state[3][value % self.time_step,prob% self.time_step] = 1.0
+		return square_state
+
+
+	def do_move(self,move):
+		move += self.turn*self.time_step
+		self.bet_states[move] = 1
+		self.last_move = move
+
+	def game_profit(self):
+	
+		if self.turn < 1 :return 0.0
+		moves, _ = np.array(list(zip(*self.bet_states.items())))
+		scene,_ = np.array(list(zip(*self.game_scene.items())))
+		profit = 0
+		moves = moves % self.time_step
+		scene = scene % self.time_step
+		for i in range(1,self.turn+1):
+			profit += moves[i-1]*(scene[i] - scene[i-1])
+		return profit
+
+	def game_end(self):
+		
+ 
+		if self.turn == self.time_step:return True
+		else:return False
+
+
+	def game_show(self):
+		
+
+		show_state = np.zeros((2*self.time_step, self.time_step))
+		if self.turn >= self.time_step: return show_state
+		if self.bet_states:
+			moves, _ = np.array(list(zip(*self.bet_states.items())))
+		scene,_ = np.array(list(zip(*self.game_scene.items())))
+
+		show_state[2*(scene // self.time_step) , scene % self.time_step] = 1
+		if self.bet_states:
+			show_state[2*(moves// self.time_step) + 1, moves% self.time_step] = 1
+	
+		return show_state
+
+
+
+
+
+
+class Game(object):
+
+	def __init__(self,env):
+		self.env = env
+
+	def set_scene(self,scene):
+		p,q = zip(*scene)
+		print(p,q)
+		self.scene = scene
+
+	def _get_human_action(self):
+
+		try:
+			location = input("Your move: ")
+			if isinstance(location, str):  # for python3
+				move = int(location, 10)
+		except Exception as e:
+			move = -1
+		return move
+
+
+		
+	def play_game(self):
+
+		print(self.scene[0][0],self.scene[0][1])
+		self.env.init_env()
+		self.env.update_scene(self.scene[0][0],self.scene[0][1])
+		turn = 0
+		while True:
+			print('\n')
+			print(self.env.game_show())
+			#print(self.env.current_state())
+			move =self. _get_human_action()
+			turn += 1
+			print(self.scene[int(turn)][0],self.scene[int(turn)][1])
+			self.env.do_move(move)
+			print(self.env.game_show())
+			#print(self.env.current_state())
+			self.env.update_scene(self.scene[int(turn)][0],self.scene[int(turn)][1])
+			print('profit:',self.env.game_profit())
+			if self.env.game_end():
+				return
+
+			
+	'''
+	def slef_game(self,player):
+
+
+		self.env.init_env(self.scene[0][0],self.scene[0][1])
+                self.env.update_scene(self.scene[0][0],self.scene[0][1])
+                turn = 0
+		states, mcts_probs = [], []
+		while True:
+					
+			move, move_probs = player.get_action()
+
+			states.append(self.env.current_state())
+			mcts_probs.append(move_probs)
+			self.env.do_move(move,self.scene[int(turn)][0],self.scene[int(turn)][1])
+			turn += 1
+			self.env.update_scene(self.scene[int(turn)][0],self.scene[int(turn)][1])
+			if self.env.game_end():
+				profit = self.env.game_profit()
+				winners_z = np.zeros(len(mcts_probs))
+				if profit >0:win=1.0
+				elif profit == 0: win = 0.0
+				else:win=-1.0
+				winners_z = win
+
+		return zip(states, mcts_probs, winners_z)
+	'''
+				
+
+
+	
+
+
+
+			
+	
+			
+
