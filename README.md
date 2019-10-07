@@ -17,21 +17,26 @@ Some tests and conclusions:
 
 * A single stock and its corresponding date of the Shanghai Stock Exchange data into a row. Construct 10 1*100 column vectors for 100 consecutive days.     
    * The elements of the covariance matrix are all tending to zero, indicating that there is no correlation between the data (opening   price, closing price, maximum price, minimum price, turnover ratio), which is random.    
+   
      ![](https://github.com/qjchen1972/stock/blob/master/img/covmat.png)
 
    * Using SVD decomposition, the maximum eigenvector is much larger than other terms. 
+   
      ![](https://github.com/qjchen1972/stock/blob/master/img/singular.png)
 
    * The second eigenvector of the ranking corresponds to the second column of the right matrix after SVD decomposition. It can be seen that the data of stock and the data of the market are different.
+   
      ![](https://github.com/qjchen1972/stock/blob/master/img/right.png)
 
 
 * From the data of all A-share stocks in the last 15 years, we took 32 consecutive days of a stock and the corresponding market of that day to compose an image, and randomly selected 500,000 stocks for CNN training. The validation set did not drop. The validation set also does not decline by randomly selecting only one scenario (such as only predicting post-trough trend, or only predicting post-peak trend).  
-   * [StockV1.0](https://github.com/qjchen1972/stock/tree/master/stockV1.0) uses simple five categories (x > 2%, 2% > x > 1% 1% > x >= - 1% - 1% > x >= - 2% x > - 2%). The validation set tests show that the error increases instead of decreasing.   
+   * [StockV1.0](https://github.com/qjchen1972/stock/tree/master/stockV1.0) uses simple five categories (x > 2%, 2% > x > 1% 1% > x >= - 1% - 1% > x >= - 2% x > - 2%). The validation set tests show that the error increases instead of decreasing.
+   
      ![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
      
    
    * [StockV2.0](https://github.com/qjchen1972/stock/tree/master/stockV2.0) tries to find the best point of Auroc curve by using threshold value. The Auroc value does not exceed 0.55, which is similar to random guess.    
+   
      ![](https://github.com/qjchen1972/stock/blob/master/img/stockV2_train_124.png)
 
    * CONCLUSION: The daily K-line can not be used regularly.
@@ -54,5 +59,12 @@ Some tests and conclusions:
     * [Mcts](https://github.com/qjchen1972/dire/blob/master/bone%20suppression/README.md), the previous day's rise and fall as the game operation of the banker, retailers buy, sell and hold as the corresponding game operation. So the stock becomes a game. Referring to the source code and paper of Alpha Zero of deepmind, Monte Carlo tree is used for training. If the daily K-line characteristics correspond to the rise and fall is fixed, the accuracy and return are high. Unfortunately, the rise and fall of the K-line characteristics are irregular.    
     
        ![](https://github.com/qjchen1972/stock/blob/master/img/score.png)
+       
+ 
+Dependencies
+====
+
+* pytorch V0.4.1 or later
+* c++11 or later
     
 
