@@ -10,6 +10,9 @@ This project tries to find out whether the daily K-line chart can be used to pre
 
 * To try to use the idea of game between bankers and retailers to predict stocks (based on Monte Carlo Tree). referring to https://github.com/junxiaosong/AlphaZero_Gomoku and the paper "Mastering the game of Go without human knowledge"
 
+Some attempts and conclusions:
+====
+
 
 An entertainment project, trying to get rules from historical data of stocks. it provides some features:
 
