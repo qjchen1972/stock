@@ -41,12 +41,10 @@ Some attempts and conclusions:
    * after in-depth analysis, the main reason for the Auroc value of the validation set is close to 0.7, that is, second days after continuous the Daily-limit, the probability is very high. So the prediction accuracy is quite high. But it's no use, because you can't buy it!!!
 
 
+* The essence of stock is game, can we find some rules from the perspective of game?    
 
-An entertainment project, trying to get rules from historical data of stocks. it provides some features:
+   * [Img_RL](https://github.com/qjchen1972/dire/blob/master/bone%20suppression/README.md), according to the daily K-line, carries on one of the three operations of buying, selling and holding for 10 consecutive days, and chooses the operation combination which obtains the greatest profit. Using image feature extraction or data input directly, and using the usual intensity learning training, it is found that it can not converge. Careful analysis, the reason is that the maximum revenue operation corresponding to the same characteristics is random!!!  
+   
+    * [Mcts](https://github.com/qjchen1972/dire/blob/master/bone%20suppression/README.md), the previous day's rise and fall as the game operation of the banker, retailers buy, sell and hold as the corresponding game operation. So the stock becomes a game. Referring to the source code and paper of Alpha Zero of deepmind, Monte Carlo tree is used for training. If the daily K-line characteristics correspond to the rise and fall is fixed, the accuracy and return are high. Unfortunately, the rise and fall of the K-line characteristics are irregular.    
+    
 
-*  The historical data of a single stock and the corresponding data of the stock market are transformed into K-line graph, and then deep learning is used to extract the rules. 
-   
-   ![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
-   
-*  Training and predicting images are only stocks falling into the trough. 
-*  confusion martix
