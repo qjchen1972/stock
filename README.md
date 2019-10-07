@@ -14,21 +14,21 @@ Some attempts and conclusions:
 ====
 
 * A single stock and its corresponding date of the Shanghai Stock Exchange data into a row. Construct 10 1*100 column vectors for 100 consecutive days.     
-1. The elements of the covariance matrix are all tending to zero, indicating that there is no correlation between the data (opening price, closing price, maximum price, minimum price, turnover ratio), which is random.    
-![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
+   * The elements of the covariance matrix are all tending to zero, indicating that there is no correlation between the data (opening   price, closing price, maximum price, minimum price, turnover ratio), which is random.    
+     ![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
 
-2. Using SVD decomposition, the maximum eigenvector is much larger than other terms. 
-![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
+   * Using SVD decomposition, the maximum eigenvector is much larger than other terms. 
+     ![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
 
-3. The second eigenvector of the ranking corresponds to the second column of the right matrix after SVD decomposition. It can be seen that the data of stock and the data of the market are different.
-![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
+   * The second eigenvector of the ranking corresponds to the second column of the right matrix after SVD decomposition. It can be seen that the data of stock and the data of the market are different.
+     ![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
 
 
 * From the data of all A-share stocks in the last 15 years, we took 32 consecutive days of a stock and the corresponding market of that day to compose an image, and randomly selected 500,000 stocks for CNN training. The verification set did not drop. The validation set also does not decline by randomly selecting only one scenario (such as only predicting post-trough trend, or only predicting post-peak trend).  
-1. StockV1.0 uses simple five categories (x > 2%, 2% > x > 1% 1% > x >= - 1% - 1% > x >= - 2% x > - 2%). The validation set tests show that the error increases instead of decreasing.      
-2. StockV2.0 tries to find the best point of Auroc curve by using threshold value. The Auroc value does not exceed 0.55, which is similar to random guess.      
+   * StockV1.0 uses simple five categories (x > 2%, 2% > x > 1% 1% > x >= - 1% - 1% > x >= - 2% x > - 2%). The validation set tests show that the error increases instead of decreasing.      
+   * StockV2.0 tries to find the best point of Auroc curve by using threshold value. The Auroc value does not exceed 0.55, which is similar to random guess.      
 
-CONCLUSION: The daily K-line can not be used regularly.
+   * CONCLUSION: The daily K-line can not be used regularly.
 
 
 
