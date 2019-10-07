@@ -31,6 +31,16 @@ Some attempts and conclusions:
    * CONCLUSION: The daily K-line can not be used regularly.
 
 
+* From the data of all A-share stocks in the last 15 years, a time series is formed by taking 10 consecutive days of a stock and the corresponding data of the market on that day. 300,000 were randomly selected. RNN training using Attention mode.      
+   * The validation set has dropped in 150 epoch!!   
+   ![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
+   
+   * It is surprising that the Auroc value of the validation or test set can reach 0.66-0.71. Is there any hope?    
+   ![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
+   
+   * after in-depth analysis, the main reason for the Auroc value of the validation set is close to 0.7, that is, second days after continuous the Daily-limit, the probability is very high. So the prediction accuracy is quite high. But it's no use, because you can't buy it!!!
+
+
 
 An entertainment project, trying to get rules from historical data of stocks. it provides some features:
 
