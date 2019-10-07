@@ -4,11 +4,11 @@ This project tries to find out whether the daily K-line chart can be used to pre
 
 * To extract the features of 32-day K-line images, the network directly uses MobileNetV2 and DenseNet.  
 
-* I try to predict stocks from the time series of data of Daily K-line, referring to https://github.com/ysn2233/attentioned-dual-stage-stock-prediction.    
+* To try to predict stocks from the time series of data of Daily K-line, referring to https://github.com/ysn2233/attentioned-dual-stage-stock-prediction.    
 
-* I attempts to use the idea of game between bankers and retailers to predict stocks (based on reinforcement learning), referring to https://github.com/JannesKlaas/sometimes_deep_sometimes_learning.  
+* To try to use the idea of game between bankers and retailers to predict stocks (based on reinforcement learning), referring to https://github.com/JannesKlaas/sometimes_deep_sometimes_learning.  
 
-* I try to use the idea of game between bankers and retail investors to predict stocks (based on Monte Carlo Tree). We refer to https://github.com/junxiaosong/AlphaZero_Gomoku and the paper "Mastering the game of Go without human knowledge"
+* To try to use the idea of game between bankers and retail investors to predict stocks (based on Monte Carlo Tree). We refer to https://github.com/junxiaosong/AlphaZero_Gomoku and the paper "Mastering the game of Go without human knowledge"
 
 
 An entertainment project, trying to get rules from historical data of stocks. it provides some features:
