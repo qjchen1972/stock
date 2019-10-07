@@ -25,13 +25,13 @@ Some attempts and conclusions:
 
 
 * From the data of all A-share stocks in the last 15 years, we took 32 consecutive days of a stock and the corresponding market of that day to compose an image, and randomly selected 500,000 stocks for CNN training. The validation set did not drop. The validation set also does not decline by randomly selecting only one scenario (such as only predicting post-trough trend, or only predicting post-peak trend).  
-   * StockV1.0 uses simple five categories (x > 2%, 2% > x > 1% 1% > x >= - 1% - 1% > x >= - 2% x > - 2%). The validation set tests show that the error increases instead of decreasing.      
-   * StockV2.0 tries to find the best point of Auroc curve by using threshold value. The Auroc value does not exceed 0.55, which is similar to random guess.      
+   * [StockV1.0](https://github.com/qjchen1972/dire/blob/master/bone%20suppression/README.md) uses simple five categories (x > 2%, 2% > x > 1% 1% > x >= - 1% - 1% > x >= - 2% x > - 2%). The validation set tests show that the error increases instead of decreasing.      
+   * [StockV2.0](https://github.com/qjchen1972/dire/blob/master/bone%20suppression/README.md) tries to find the best point of Auroc curve by using threshold value. The Auroc value does not exceed 0.55, which is similar to random guess.      
 
    * CONCLUSION: The daily K-line can not be used regularly.
 
 
-* From the data of all A-share stocks in the last 15 years, a time series is formed by taking 10 consecutive days of a stock and the corresponding data of the market on that day. 300,000 were randomly selected. RNN training using Attention mode.      
+* From the data of all A-share stocks in the last 15 years, a time series is formed by taking 10 consecutive days of a stock and the corresponding data of the market on that day. 300,000 were randomly selected. RNN training using Attention mode ---[LSTM](https://github.com/qjchen1972/dire/blob/master/bone%20suppression/README.md)    
    * The validation set has dropped in 150 epoch!!   
    ![](https://github.com/qjchen1972/stock/blob/master/img/000001_20130604.png)
    
