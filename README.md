@@ -1,6 +1,8 @@
 This project tries to find out whether the daily K-line  can be used to predict A shares. It took two months and tried a lot. Some explanations and thanks:   
 
-* Daily K-line and minute-line data (opening price, closing price, maximum price, minimum price, turnover ratio), data from Tong Da Xin.    * some information about the company's Fundamentals (price earnings ratio, market rate, circulation stock number, total stock number). data from web.ifzq.gtimg.cn
+* Daily K-line and minute-line data (opening price, closing price, maximum price, minimum price, turnover ratio), data from Tong Da Xin.
+
+* some information about the company's Fundamentals (price earnings ratio, market rate, circulation stock number, total stock number). data from web.ifzq.gtimg.cn
 
 * To extract the features of 32-day K-line images, the network directly uses MobileNetV2 and DenseNet.  
 
